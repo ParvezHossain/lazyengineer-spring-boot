@@ -20,7 +20,31 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 
-	@GetMapping(value = { "/", "/login" })
+	@GetMapping("/")
+	public ModelAndView index() {
+		ModelAndView model = new ModelAndView();
+
+		model.setViewName("index");
+		return model;
+	}
+
+	@GetMapping("/about-me")
+	public ModelAndView aboutme() {
+		ModelAndView model = new ModelAndView();
+		
+		model.setViewName("aboutme");
+		return model;
+	}
+	
+	@GetMapping("/success")
+	public ModelAndView success() {
+		ModelAndView model = new ModelAndView();
+		
+		model.setViewName("success");
+		return model;
+	}
+	
+	@GetMapping(value = {"/login" })
 	public ModelAndView login() {
 		ModelAndView model = new ModelAndView();
 

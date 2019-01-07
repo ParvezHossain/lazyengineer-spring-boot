@@ -40,6 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 			.antMatchers("/").permitAll()
+			.antMatchers("/about-me").permitAll()
 			.antMatchers("/login").permitAll()
 			.antMatchers("/signup").permitAll()
 			.antMatchers("/home/**").hasAuthority("ADMIN").anyRequest()
@@ -47,7 +48,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.and()
 			.csrf().disable()
 			.formLogin().loginPage("/login").failureUrl("/login?error=true")
-			.defaultSuccessUrl("/home/home")
+			.defaultSuccessUrl("/success")
 			.usernameParameter("email")
 			.passwordParameter("password")
 			.and().logout()
